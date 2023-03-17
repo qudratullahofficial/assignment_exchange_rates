@@ -1,3 +1,18 @@
+Online link of task:
+
+http://assignment.earnjackpot.com/
+
+Github Url:
+https://github.com/qudratullahofficial/assignment_exchange_rates
+
+Clone HTTPS Url:
+https://github.com/qudratullahofficial/assignment_exchange_rates.git
+
+Github CLI:
+gh repo clone qudratullahofficial/assignment_exchange_rates
+
+
+
 Task1:
 	Prepare a web widget using the JavaScript framework of your choice, showing current exchange rates of a few well-known currencies e.g. USD, EUR, CHF, AUD, CAD to GBP.
 	
