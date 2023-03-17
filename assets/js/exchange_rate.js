@@ -14,7 +14,8 @@ var ExchangeRate = function () {
 
 
     var LoadExchangeData = function () {
-        var base = $(".currency").val();
+        var base = $(".currency").val().toUpperCase();
+        ;
         $(".currency-text").html(base);
         $.ajax({
             url: baseUrl + 'home/getExchangeRates/',
@@ -50,7 +51,7 @@ var ExchangeRate = function () {
     };
 
     var RefreshExchangeData = function () {
-        var currencyBase = $(".currency").val();
+        var currencyBase = $(".currency").val().toUpperCase();
         $(".currency-text").html(currencyBase);
         var key = "base-" + currencyBase;
         var cached = localStorage.getItem(key);
@@ -75,6 +76,13 @@ var ExchangeRate = function () {
         }
     };
 
+    var validate = function () {
+        if ($(".currency").val() === "") {
+            alert("Please enter value in currency field.");
+            return false;
+        }
+    };
+
     var setDate = function () {
         var date = new Date();
         var month = date.toLocaleString('en-US', {month: 'long'});
@@ -83,9 +91,10 @@ var ExchangeRate = function () {
 
     return {
         LoadExchangeData: function () {
-            RefreshExchangeData();
-        },
-        RefreshExchangeData: function () {
+            if ($(".currency").val() === "") {
+                alert("Please enter valid value in currency field.");
+                return;
+            }
             RefreshExchangeData();
         }
     };

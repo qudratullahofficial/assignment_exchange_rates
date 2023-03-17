@@ -1,8 +1,8 @@
 <main>
     <div class="d-flex align-items-center mb-3 input-currency">
-        <input type="text" class="form-control currency" value="GBP" placeholder="Search">
+        <input type="text" class="form-control currency" value="GBP" placeholder="GBP">
         <button onclick="ExchangeRate.LoadExchangeData()" type="button" class="btn btn-primary w-25 ms-2">Search</button>
-        <button onclick="ExchangeRate.RefreshExchangeData()" type="button" class="btn btn-primary w-25 ms-2">Refresh</button>
+        <button onclick="ExchangeRate.LoadExchangeData()" type="button" class="btn btn-primary w-25 ms-2">Refresh</button>
     </div>
     <div class="currency-chart">
         <div class="currency-chart-header">
