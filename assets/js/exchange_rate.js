@@ -50,7 +50,6 @@ var ExchangeRate = function () {
     };
 
     var RefreshExchangeData = function () {
-        $.blockUI({target: 'body', animate: true});
         var currencyBase = $(".currency").val();
         $(".currency-text").html(currencyBase);
         var key = "base-" + currencyBase;
@@ -61,18 +60,19 @@ var ExchangeRate = function () {
             var storedTime = new Date(cachedObj.initTime);
             var diffSec = (currentTime.getTime() - storedTime.getTime()) / 1000;
             if (diffSec <= 120) {
+                $.blockUI({target: 'body', animate: true});
                 var htmlResponse = getResponseHtml(cachedObj.data);
                 $(".exchange-data").html(htmlResponse);
                 setDate();
+                setTimeout(function () {
+                    $.unblockUI();
+                }, 500);
             } else {
                 LoadExchangeData();
             }
         } else {
             LoadExchangeData();
         }
-        setTimeout(function () {
-            $.unblockUI();
-        }, 500);
     };
 
     var setDate = function () {
